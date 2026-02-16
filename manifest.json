@@ -1,0 +1,49 @@
+{
+  "manifest_version": "0.4",
+  "name": "@nimblebraininc/registry-tools",
+  "version": "0.1.0",
+  "description": "Search and resolve MCP server packages from the mpak registry",
+  "author": {
+    "name": "NimbleBrain Inc",
+    "email": "hello@nimblebrain.ai"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NimbleBrainInc/mcp-registry-tools"
+  },
+  "server": {
+    "type": "python",
+    "entry_point": "mcp_registry_tools.server",
+    "mcp_config": {
+      "command": "python",
+      "args": ["-m", "mcp_registry_tools.server"],
+      "env": {
+        "REGISTRY_URL": "${user_config.registry_url}"
+      }
+    }
+  },
+  "user_config": {
+    "registry_url": {
+      "type": "string",
+      "title": "Registry URL",
+      "description": "mpak registry URL (default: https://registry.mpak.dev)",
+      "required": false
+    }
+  },
+  "tools": [
+    { "name": "registry_search", "description": "Search the mpak registry for available MCP servers" },
+    { "name": "registry_resolve", "description": "Get full metadata for a specific package" }
+  ],
+  "_meta": {
+    "org.mpaktrust": {
+      "mtf_version": "0.1",
+      "permissions": {
+        "filesystem": "none",
+        "network": "outbound",
+        "environment": "read",
+        "subprocess": "none",
+        "native": "none"
+      }
+    }
+  }
+}
