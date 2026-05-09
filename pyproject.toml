@@ -1,6 +1,6 @@
 [project]
 name = "mcp-registry-tools"
-version = "0.1.0"
+version = "0.1.1"
 description = "Search and resolve MCP server packages from the mpak registry"
 readme = "README.md"
 license = {text = "MIT"}
